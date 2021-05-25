@@ -1,5 +1,3 @@
-
-
 function decodePolygon(coordinate, encodeOffsets, encodeScale) {
   var result = [];
   var prevX = encodeOffsets[0];

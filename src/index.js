@@ -1,5 +1,5 @@
 import './index.less';
-import ThreeMap from "./ThreeMap"
+import ThreeMapLightBar from './ThreeMapLightBar';
 import {
   decodeGeo
 } from "./utils"
@@ -9,13 +9,16 @@ if (process.env.NODE_ENV === 'development') {
   import('./index.html');
 }
 
-$(function(){
-    $.get("./assets/map/china.json", res => {
-        const data = decodeGeo(res); // 解密geo json
-        console.log(data);
-    });
-
-    const map = new ThreeMap();
+$(function () {
+  $.get("./assets/map/china.json", data => {
+    const map = new ThreeMapLightBar({}, decodeGeo(data));
     map.init();
-})
+
+    
+    // map.drawLightBar();
+    // map.drawFlyLine();
+  });
+
+
+});
 console.log('ok~~~');
